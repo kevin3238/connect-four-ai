@@ -40,10 +40,6 @@ public class ConnectFourAI {
 		fillCoordinates(gameBoard);
 		fillGameBoard(gameBoard);
 		
-		for (int l = 0; l < 7; l++){
-			System.out.println("" + l + ", " + x_scores[l][0]);
-		}
-		
 		hasDoubleSelf(gameBoard);
 		hasDoubleOpp(gameBoard);
 		
@@ -52,10 +48,6 @@ public class ConnectFourAI {
 		
 		hasSpacedSelf(gameBoard);
 		hasSpacedOpp(gameBoard);
-		
-		for (int i = 0; i < 7; i++){
-			System.out.println("" + i + ": " + open_x_vals[i]);
-		}
 		
 		if (firstMove) {
 			firstMove = false;
@@ -66,7 +58,6 @@ public class ConnectFourAI {
 			if (open_x_vals[x] == 0) {
 				int temp_y = x_scores[x][0];
 				if (myTripleCoords[x][temp_y] == 1) {
-					System.out.println("yay i have a triple");
 					ret_coord[0] = x;
 					ret_coord[1] = temp_y;
 					return ret_coord;
@@ -78,7 +69,6 @@ public class ConnectFourAI {
 			if (open_x_vals[x] == 0) {
 				int temp_y = x_scores[x][0];
 				if (mySpacedCoords[x][temp_y] == 1) {
-					System.out.println("yay i have a spaced triple");
 					ret_coord[0] = x;
 					ret_coord[1] = temp_y;
 					return ret_coord;
@@ -90,7 +80,6 @@ public class ConnectFourAI {
 			if (open_x_vals[x] == 0) {
 				int temp_y = x_scores[x][0];
 				if (oppTripleCoords[x][temp_y] == 1) {
-					System.out.println("opp has a triple must block!");
 					ret_coord[0] = x;
 					ret_coord[1] = temp_y;
 					return ret_coord;
@@ -102,7 +91,6 @@ public class ConnectFourAI {
 			if (open_x_vals[x] == 0) {
 				int temp_y = x_scores[x][0];
 				if (oppSpacedCoords[x][temp_y] == 1) {
-					System.out.println("have to block a space 4x!");
 					ret_coord[0] = x;
 					ret_coord[1] = temp_y;
 					return ret_coord;
@@ -427,7 +415,6 @@ public class ConnectFourAI {
 	
 	public void fillTripleOpp (int val, int x, int y) {
 		if (isValid(x,y) && val >= 2 && filled_coordinates[x][y] != 1) {
-			System.out.println("opp triple registered");
 			oppTripleCoords[x][y] = 1;
 		}
 	}
